@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>My Cats - Haille Marie Lynn Perkins</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,200;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="styles/skeleton.css">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: linear-gradient(45deg, #3995ff, #6140e3, #421a92, #251531);
+      background-attachment: fixed;
+    }
+
+    .name-link {
+      display: inline-block;
+      color: #a63df1;
+      text-decoration: none;
+    }
+    .name-link:hover {
+      color: #a63df1;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 12px;
+    }
+    .social-icons a,
+    .reach-out-icons a {
+      opacity: 1;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+    .social-icons a:hover,
+    .reach-out-icons a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+    .social-icons img,
+    .reach-out-icons img {
+      border-radius: 0;
+      display: block;
+      background: transparent;
+    }
+
+    /* Container for the half-and-half layout */
+    .split-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Left pane (Hero) */
+    .left-pane {
+      flex: 0 0 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .left-pane > img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      margin-bottom: 2rem;
+    }
+
+    .left-pane h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .left-pane p {
+      margin: 0 0 2rem;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      color: #ffffff;
+      opacity: 0.9;
+    }
+
+    .back-link {
+      margin-top: 2rem;
+      display: inline-block;
+    }
+
+    .back-link a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: opacity 200ms ease;
+    }
+
+    .back-link a:hover {
+      opacity: 0.7;
+    }
+
+    /* Right pane (Content) */
+    .right-pane {
+      flex: 1;
+      padding: 8rem 12rem;
+      box-sizing: border-box;
+      background-color: #f3e8da;
+      color: #2f2219;
+      min-height: 100vh;
+    }
+
+    .right-pane h4 {
+      color: #4a3527;
+      font-weight: 700;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      font-size: 3.5rem;
+    }
+
+    .right-pane h4:first-child {
+      margin-top: 0;
+    }
+
+    .right-pane p {
+      color: #3b2c22;
+      line-height: 1.8;
+      font-size: 1.65rem;
+    }
+
+    .right-pane a {
+      color: #a63df1;
+      text-decoration: none;
+    }
+
+    .right-pane a:hover,
+    .right-pane a:focus-visible,
+    .right-pane a:visited {
+      color: #a63df1;
+    }
+
+    .right-pane b, .right-pane strong {
+      color: #1f1711;
+    }
+
+    /* Cat gallery grid */
+    .cat-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .cat-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 200ms ease;
+    }
+
+    .cat-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .cat-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      border-radius: 0px;
+    }
+
+    .cat-card h5 {
+      padding: 1rem;
+      background: #ffffff;
+      margin: 0;
+      color: #4a3527;
+      font-weight: 600;
+    }
+
+    /* Keep particle canvas fixed in background */
+    #particle-canvas {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+    }
+
+    @media (max-width: 1024px) {
+      .split-container {
+        flex-direction: column;
+        overflow: auto;
+        height: auto;
+      }
+      .left-pane {
+        flex: none;
+        height: 100vh;
+        position: relative;
+        padding: 4rem 2rem;
+      }
+      .left-pane h1 {
+        font-size: 5rem;
+      }
+      .left-pane p {
+        font-size: 2.2rem;
+      }
+      .right-pane {
+        padding: 10rem 6rem;
+        max-width: 100%;
+        overflow: visible;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/background.css">
+
+  <div id="particle-canvas"></div>
+
+  <div class="split-container">
+    <section class="left-pane">
+      <img src="images/pfp.jpeg" alt="Profile">
+      <h1>Hey there! I'm Haille</h1>
+      <p><b>and these are my cats</b></p>
+      <!-- <div class="social-icons">
+        <a href="https://github.com/hmperk18" target="_blank" aria-label="GitHub" title="GitHub">
+          <img src="assets/github.svg" width="28" height="28" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/haille-perkins/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+          <img src="assets/linkedin.svg" width="30" height="30" alt="LinkedIn">
+        </a>
+      </div> -->
+      <div class="back-link">
+        <a href="index.html">← Back to Home</a>
+      </div>
+    </section>
+
+    <div class="right-pane">
+      <!-- Cats  -->
+      <h4 id="cats" style="text-align:justify;"><a href="#cats" class="anchor" style="color: #8a6b52;">#</a>My Cats</h4>
+      <!-- <br> -->
+
+      <p style="text-align:justify;">
+        Here are my four cats! I adopted Ollie and Cider after my first semester of graduate school, and Kickflip and Eggnog were found on my apartment lawn in the fall of 2025.
+      </p>
+
+      <div class="cat-gallery">
+        <div class="cat-card">
+          <img src="images/cat1.jpg" alt="Photo of a cat named Ollie">
+          <h5>Ollie</h5>
+        </div>
+        <div class="cat-card">
+          <img src="images/cat2.jpg" alt="Photo of a cat named Cider">
+          <h5>Cider</h5>
+        </div>
+        <div class="cat-card">
+          <img src="images/cat3.jpg" alt="Photo of a cat named Kickflip">
+          <h5>Kickflip</h5>
+        </div>
+        <div class="cat-card">
+          <img src="images/cat4.jpg" alt="Photo of a cat named Eggnog">
+          <h5>Eggnog</h5>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <p style="text-align: center;">
+        <!-- <b>&lt;/&gt;</b> with 🐱 -->
+        <br>
+        © Haille Perkins, 2026
+      </p>
+    </div>
+  </div>
+
+</body>
+
+<script>
+  // particles.min.js — edit particles.js and re-minify to update
+  // npx terser particles.js --compress --mangle
+  !function(t,a){"function"==typeof define&&define.amd?define(["exports"],function(e){t.ConstellationNetwork=a(t,e)}):"undefined"!=typeof module&&module.exports?module.exports=a(t,{}):t.ConstellationNetwork=a(t,{})}(this,function(t,a){function e(t,a,e,n,i,s,o,h){var r=e-t,l=n-a,c=o-i,p=h-s,d=r*p-l*c;if(Math.abs(d)<1e-10)return!1;var u=((i-t)*p-(s-a)*c)/d,m=((i-t)*l-(s-a)*r)/d;return u>0&&u<1&&m>0&&m<1}var n=function(t,a){this.container=t,a=a||{},this.options={palette:a.palette||["#ffffff"],lineColor:a.lineColor||"#ffffff",numConstellations:a.numConstellations||20,minStars:a.minStars||3,maxStars:a.maxStars||7,linkDistance:a.linkDistance||140,baseSpeed:a.baseSpeed||.18,twinkleRate:a.twinkleRate||.07,plateStrength:a.plateStrength||.03,plateLerp:a.plateLerp||.03},this.canvas=null,this.ctx=null,this.W=0,this.H=0,this.spawnW=0,this.constellations=[],this.mouse={x:0,y:0,active:!1},this.plate={x:0,y:0},this.init()};return n.prototype.init=function(){this.canvas=document.createElement("canvas"),this.container.appendChild(this.canvas),this.ctx=this.canvas.getContext("2d"),this.measure(),window.addEventListener("resize",this.onResize.bind(this)),window.addEventListener("mousemove",this.onMouse.bind(this)),window.addEventListener("mouseleave",function(){this.mouse.active=!1}.bind(this)),this.spawn(),requestAnimationFrame(this.loop.bind(this))},n.prototype.measure=function(){this.W=this.canvas.width=window.innerWidth,this.H=this.canvas.height=window.innerHeight;var t=document.querySelector(".left-pane");this.spawnW=t?t.offsetWidth:this.W},n.prototype.spawn=function(){var t=this.options,a=Math.random()*Math.PI*2,n=t.baseSpeed*(.4+.8*Math.random());this.constellations=[];for(var i=0;i<t.numConstellations;i++){for(var s=.75*t.linkDistance,o=t.minStars+Math.floor(Math.random()*(t.maxStars-t.minStars+1)),h=[],r=0;r<o;r++)h.push({ox:(Math.random()-.5)*s,oy:(Math.random()-.5)*s,color:t.palette[Math.floor(Math.random()*t.palette.length)],phase:Math.random()*Math.PI*2,rate:t.twinkleRate*(.5+Math.random()),baseAlpha:.55+.45*Math.random(),radius:.7+1.5*Math.random(),alpha:1});for(var l=[],c=0;c<h.length-1;c++)for(var p=c+1;p<h.length;p++){var d=h[c].ox-h[p].ox,u=h[c].oy-h[p].oy,m=Math.sqrt(d*d+u*u);m<=t.linkDistance&&l.push({a:c,b:p,dist:m})}l.sort(function(t,a){return a.dist-t.dist});for(var f=[],v=0;v<l.length;v++){for(var x=l[v],y=h[x.a],M=h[x.b],b=!1,w=0;w<f.length;w++){var g=f[w];if(g.a!==x.a&&g.a!==x.b&&g.b!==x.a&&g.b!==x.b){var S=h[g.a],k=h[g.b];if(e(y.ox,y.oy,M.ox,M.oy,S.ox,S.oy,k.ox,k.oy)){b=!0;break}}}b||f.push(x)}var W,C,H=1.8*t.linkDistance,A=0;do{W=Math.random()*this.spawnW,C=Math.random()*this.H;var D=this.constellations.some(function(t){var a=t.cx-W,e=t.cy-C;return Math.sqrt(a*a+e*e)<H});A++}while(D&&A<50);var E=Math.cos(a)*n,L=Math.sin(a)*n;this.constellations.push({cx:W,cy:C,vx:E,vy:L,bvx:E,bvy:L,stars:h,edges:f})}},n.prototype.loop=function(){var t=this.options,a=this.ctx;a.clearRect(0,0,this.W,this.H);var e=this.mouse.active?(this.mouse.x-this.W/2)*t.plateStrength:0,n=this.mouse.active?(this.mouse.y-this.H/2)*t.plateStrength:0;this.plate.x+=(e-this.plate.x)*t.plateLerp,this.plate.y+=(n-this.plate.y)*t.plateLerp;var i=this;this.constellations.forEach(function(e){e.cx+=e.vx,e.cy+=e.vy;var n=t.linkDistance;e.cx<-n&&(e.cx=i.spawnW+n,e.cy=Math.random()*i.H),e.cx>i.spawnW+n&&(e.cx=-n,e.cy=Math.random()*i.H),e.cy<-n&&(e.cy=i.H+n,e.cx=Math.random()*i.spawnW),e.cy>i.H+n&&(e.cy=-n,e.cx=Math.random()*i.spawnW);var s=e.stars.map(function(t){return{x:e.cx+t.ox+i.plate.x,y:e.cy+t.oy+i.plate.y}});e.edges.forEach(function(e){var n=s[e.a],i=s[e.b];a.beginPath(),a.strokeStyle=t.lineColor,a.globalAlpha=.35*(1-e.dist/t.linkDistance),a.lineWidth=.6,a.moveTo(n.x,n.y),a.lineTo(i.x,i.y),a.stroke()}),e.stars.forEach(function(t,e){t.phase+=t.rate,t.alpha=t.baseAlpha+.3*Math.sin(t.phase),t.alpha=Math.max(.05,Math.min(1,t.alpha));var n=s[e];a.beginPath(),a.fillStyle=t.color,a.globalAlpha=t.alpha,a.arc(n.x,n.y,t.radius,0,2*Math.PI),a.fill()})}),a.globalAlpha=1,requestAnimationFrame(this.loop.bind(this))},n.prototype.onResize=function(){this.measure(),this.spawn()},n.prototype.onMouse=function(t){this.mouse.x=t.clientX,this.mouse.y=t.clientY,this.mouse.active=!0},n});
+
+  // Initialisation
+  var canvasDiv = document.getElementById('particle-canvas');
+  var options = {
+    palette:           ['#facab1', '#fce0d0', '#f9f0eb', '#ffffff', '#edf2f5', '#d8e9f1', '#bddbea'],
+    lineColor:         '#ffffff',
+    numConstellations: 20,
+    minStars:          3,
+    maxStars:          7,
+    linkDistance:      140,
+    baseSpeed:         0.18,
+    twinkleRate:       0.07,
+    plateStrength:     0.03,
+    plateLerp:         0.03,
+  };
+  var particleCanvas = new ConstellationNetwork(canvasDiv, options);
+</script>
+
+</html>
