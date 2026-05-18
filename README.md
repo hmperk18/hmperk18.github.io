@@ -1,1 +1,1 @@
-Personal Website following the template from dev-ved30
+Personal website following the template from [dev-ved30](https://dev-ved30.github.io/)
